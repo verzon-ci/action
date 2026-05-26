@@ -42,6 +42,10 @@ inputs:
     description: Force SemVer Iteration
   semver-metadata:
     description: Force SemVer Metadata
+  semver-strategy:
+    description: Which strategy to use when handling consecutive pre-releases
+  semver-include-zero-iteration:
+    description: Weather to show/hide zero iterations (e.g. 1.0.0-alpha.0)
   webhook-custom-origin:
     description: Create a Webhook with origin
   webhook-custom-enabled:
@@ -132,6 +136,8 @@ runs:
           ["semver-pre-release"]="${{ inputs.semver-pre-release }}"
           ["semver-iteration"]="${{ inputs.semver-iteration }}"
           ["semver-metadata"]="${{ inputs.semver-metadata }}"
+          ["semver-strategy"]="${{ inputs.semver-strategy }}"
+          ["semver-include-zero-iteration"]="${{ inputs.semver-include-zero-iteration }}"
           ["webhook-custom-origin"]="${{ inputs.webhook-custom-origin }}"
           ["webhook-custom-enabled"]="${{ inputs.webhook-custom-enabled }}"
           ["webhook-custom-url"]="${{ inputs.webhook-custom-url }}"
