@@ -6,6 +6,8 @@ inputs:
     description: Path to configuration file
   config-dir:
     description: Dir of configuration file
+  config-name:
+    description: Name of configuration file
   cwd:
     description: Path to run onto
   graceful:
@@ -88,6 +90,20 @@ inputs:
     description: Create a Webhook with HTTP retries
   webhook-github-http-timeout:
     description: Create a Webhook with HTTP retries
+  webhook-gitea-origin:
+    description: Create a Webhook with enablement
+  webhook-gitea-enabled:
+    description: Create a Webhook with enablement
+  webhook-gitea-url:
+    description: Create a Webhook with url
+  webhook-gitea-token:
+    description: Create a Webhook with token
+  webhook-gitea-token-env:
+    description: Create a Webhook with token env
+  webhook-gitea-http-retries:
+    description: Create a Webhook with HTTP retries
+  webhook-gitea-http-timeout:
+    description: Create a Webhook with HTTP retries
 runs:
   using: "composite"
   steps:
@@ -118,6 +134,7 @@ runs:
         declare -A INPUTS=(
           ["config"]="${{ inputs.config }}"
           ["config-dir"]="${{ inputs.config-dir }}"
+          ["config-name"]="${{ inputs.config-name }}"
           ["cwd"]="${{ inputs.cwd }}"
           ["graceful"]="${{ inputs.graceful }}"
           ["colored"]="${{ inputs.colored }}"
@@ -159,6 +176,13 @@ runs:
           ["webhook-github-token-env"]="${{ inputs.webhook-github-token-env }}"
           ["webhook-github-http-retries"]="${{ inputs.webhook-github-http-retries }}"
           ["webhook-github-http-timeout"]="${{ inputs.webhook-github-http-timeout }}"
+          ["webhook-gitea-origin"]="${{ inputs.webhook-gitea-origin }}"
+          ["webhook-gitea-enabled"]="${{ inputs.webhook-gitea-enabled }}"
+          ["webhook-gitea-url"]="${{ inputs.webhook-gitea-url }}"
+          ["webhook-gitea-token"]="${{ inputs.webhook-gitea-token }}"
+          ["webhook-gitea-token-env"]="${{ inputs.webhook-gitea-token-env }}"
+          ["webhook-gitea-http-retries"]="${{ inputs.webhook-gitea-http-retries }}"
+          ["webhook-gitea-http-timeout"]="${{ inputs.webhook-gitea-http-timeout }}"
         )
 
         ARGS=""
